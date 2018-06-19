@@ -1,0 +1,141 @@
+    1  apt update && apt install python -y 
+    2  exit
+    3  ss -lntp
+    4  getent passwd bispo
+    5  cat /var/www/html/index.php
+    6  ss -lntp
+    7  ls
+    8  ls 
+    9  cd ..
+   10  ls
+   11  cd..
+   12  ls
+   13  cd vagrant
+   14  ls
+   15  cd..
+   16  exit
+   17  puppet --version
+   18  cd..
+   19  cd
+   20  clear
+   21  puppet agent -t --server devops.salas4linux.com.br
+   22  ls
+   23  cat /etc/puppetlabs/puppet/puppet.conf 
+   24  puppet agent -t --server devops.salas4linux.com.br
+   25  cat /etc/puppetlabs/puppet/puppet.conf 
+   26  puppet agent -t --server devops.salas4linux.com.br
+   27  vim /etc/apt/sources.list
+   28  puppet agent -t --server devops.salas4linux.com.br
+   29  docker --version 
+   30  docker ps
+   31  docker run debian /bin/ls etc
+   32  docker ps -a
+   33  docker run --name desafiador -it centos /bin/bash
+   34  uname -r
+   35  docker ps -a
+   36  doker run --name asa_noturna -h asa_noturna -it centos /bin/bash
+   37  ls
+   38  docker run --name asa_noturna -h asa_noturna -it centos /bin/bash
+   39  docker ps -a
+   40  exit
+   41  yum install epel-release -y
+   42  docker -ps 
+   43  docker ps 
+   44  docker ps -a
+   45  docker start asa_noturna
+   46  docker ps
+   47  docker attach asa_noturna
+   48  docker volume create --name dcwomen
+   49  cd /var/lib/docker/volumes/dcwomen/
+   50  ls
+   51  cd _data/
+   52  cls
+   53  ls
+   54  touch {arlequina, hera_venenosa,mulher_maravilha,mulher_gaviao}
+   55  ls
+   56  touch {arlequina,hera_venenosa,mulher_maravilha,mulher_gaviao}
+   57  ls
+   58  cd
+   59  docker run -dti --name dcwomen -v dcwomen:/root/pasta_dcwomen centos /bin/bash
+   60  docker ps
+   61  docker exec -it dcwomen /bin/ls /root/pasta_dcwomen/
+   62  docker exec -it dcwomen /bin/bash
+   63  mkdir /dcmen
+   64  mkdir dcmen
+   65  cd dcmen/
+   66  touch superman{1..10}
+   67  ls
+   68  cd ..
+   69  docker run -dti --name supermen -v /root/dcmen/:/root/pasta_dcmen/ -h supermen centos /bin/bash
+   70  docker exec -t supermen /bin/ls /root/pasta_dcmen/
+   71  docker ps
+   72  docker exec -ti supermen /bin/ls /root/pasta_dcmen
+   73  docker inspec supermen
+   74  docker ispec supermen
+   75  iptables -nL
+   76  docker stats
+   77  docker run -it -name server server_nginx -h server_nginx -p 8082:80 nginx /bin/bash
+   78  docker run -it --name server server_nginx -h server_nginx -p 8082:80 nginx /bin/bash
+   79  docker run -it --name server_nginx -h server_nginx -p 8082:80 nginx /bin/bash
+   80  docker 
+   81  docker run -it -name server server_nginx -h server_nginx -p 8082:80 nginx /bin/bash
+   82  docker run -it --name server_nginx -h server_nginx -p 8082:80 nginx /bin/bash
+   83  docker network connect dockerlan server_nginx
+   84  docker run -it --name cliente_nginx -h cliente_nginx
+   85  docker run -it --name cliente_nginx -h cliente_nginx --ip 10.0.0.10 -net dockerlan centos /bin/bash
+   86  docker run -it --name cliente_nginx -h cliente_nginx --ip 10.0.0.10 --net dockerlan centos /bin/bash
+   87  curl 10.0.0.2
+   88  curl 10.0.0.2:8082
+   89  ping 10.0.0.2
+   90  docker ps
+   91  docker start server_nginx 
+   92  docker attach server_nginx 
+   93  docker attach cliente_nginx 
+   94  docker commit cliente_nginx imagem_ifconfig
+   95  docker run -it --name ifconfig -h ifconfig imagem_ifconfig
+   96  CD
+   97  docker attach ifconfig 
+   98  curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+   99  chmod +x /usr/local/bin/docker-compose
+  100  mkdir wordpress
+  101  cd wordpress/
+  102  vim docker-compose.yml
+  103  docker-compose up -d
+  104  vim docker-compose.yml
+  105  docker-compose up -d
+  106  vim docker-compose.yml
+  107  docker-compose up -d
+  108  vim docker-compose.yml
+  109  docker-compose up -d
+  110  vim docker-compose.yml
+  111  docker-compose up -d
+  112  vim docker-compose.yml
+  113  docker-compose up -d
+  114  vim docker-compose.yml
+  115  docker-compose up -d
+  116  docker stop wordpress_mysql_server_1
+  117  docker rm  wordpress_mysql_server_1
+  118  docker rm  wordpress_wordpress_1 
+  119  vim docker-compose.yml
+  120  docker-compose up -d
+  121  docker ps
+  122  docker logs wordpress_wordpress_1 
+  123  docker run -d --name portainer -p 8084:9000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
+  124  cd
+  125  docker ps
+  126  ls
+  127  mkdir dockerfile
+  128  cd dockerfile
+  129  vim Dockerfile
+  130  docker build . -t image_dockerfile
+  131  docker images
+  132  docker run -p -ti -P --name aquaman -h aquaman image_dockerfile
+  133  docker run -ti -P --name aquaman -h aquaman image_dockerfile
+  134  docker ps
+  135  docker save image_dockerfile -o aqualad.tar 
+  136  docker rmi image_dockerfile -f
+  137  docker load -i aqualad.tar
+  138  vagrant halt
+  139  exit
+  140  history
+
