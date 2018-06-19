@@ -1,0 +1,66 @@
+---
+- name: Desafio Ansible
+  hosts: all
+  tasks:
+
+  - name: Parando NGINX
+    service:
+      name: nginx
+      state: stopped
+    ignore_errors: True
+
+  - name: Removendo o nginx - UBUNTU
+    apt:
+      name: nginx
+      state: absent
+      update_cache: yes
+    when: ansible_distribution == "Ubuntu"
+  
+  - name: Removendo o nginx - CENTOS
+    yum:
+      name: nginx
+      state: absent
+    when: ansible_distribution == "CentOS"
+
+  - name: Instalando apache2 - Ubuntu
+    apt:
+      name: "{{ item }}"
+      state: present
+      update_cache: yes
+    with_items:
+    - "apache2"
+    - "libapache2-mod-php7.0"
+    - "php7.0"
+    when: ansible_distribution == "Ubuntu"
+
+  - name: Instalando httpd - CentOS
+    yum:
+      name: "{{ item }}"
+      state: present
+    with_items:
+    - "php"
+    - "httpd"
+    notify: httpd
+    when: ansible_distribution == "CentOS"
+
+  - name: Habilitando o modulo do apache2 - UBUNTU
+    command: a2enmod php7.0
+    notify: apache2
+    when: ansible_distribution == "Ubuntu"
+
+  - name: Copia index.php
+    copy:
+      src: /root/index.php
+      dest: /var/www/html/index.php
+
+  handlers:
+  - name: apache2
+    service:
+      name: apache2
+      state: restarted
+
+  - name: httpd
+    service:
+      name: httpd
+      state: restarted
+

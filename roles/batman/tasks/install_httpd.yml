@@ -1,0 +1,8 @@
+    - name: Instalando o HTTP - CENTOS
+      yum: name=httpd state=present
+      when: ansible_os_family == "RedHat"
+
+    - name: Iniciando o httpd - CENTOS
+      service: name=httpd state=restarted
+      when: ansible_os_family == "RedHat"
+

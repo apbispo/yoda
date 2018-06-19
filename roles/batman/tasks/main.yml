@@ -1,0 +1,16 @@
+---
+# tasks file for batman
+- name: Role de instalacao do PUPPET
+  hosts: all
+#  vars:
+#    - texto: "Puppet Funcionando"
+  tasks: 
+    - include: prerequisitos.yml
+    - include: install_centos.yml
+#      when: ansible_distribution == "Ubuntu"
+    - include: install_ubuntu.yml
+    
+    
+    
+    
+    

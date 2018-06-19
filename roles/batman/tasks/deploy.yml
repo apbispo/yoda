@@ -1,0 +1,10 @@
+    - name: Aplicacao 
+      template:
+        src: ../templates/index.html
+        dest: /var/www/html/index.html
+
+    - name: Baixando uma imagem
+      get_url:
+        url: https://images3.alphacoders.com/221/221297.png
+        dest: /var/www/html/imagem.png
+

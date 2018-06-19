@@ -1,0 +1,26 @@
+   # - name: Aplicacao 
+   #   template:
+   #     src: ../templates/index.html
+   #     dest: /var/www/html/index.html
+
+# Enterprise Linux 7
+# sudo rpm -Uvh https://yum.puppet.com/puppet5/puppet5-release-el-7.noarch.rpm
+
+    - name: Baixando imagem Puppet CentOS
+      get_url:
+        url: https://yum.puppet.com/puppet5/puppet5-release-el-7.noarch.rpm
+        dest: /root/
+
+# Ubuntu 16.04 Xenial Xerus
+# wget https://apt.puppetlabs.com/puppet5-release-xenial.deb
+# sudo dpkg -i puppet5-release-xenial.deb
+# sudo apt update
+
+    - name: Baixando imagem Puppet Ubuntu
+      get_url:
+        url: https://apt.puppetlabs.com/puppet5-release-xenial.deb
+        dest: /root/
+
+
+
+

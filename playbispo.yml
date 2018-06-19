@@ -1,0 +1,57 @@
+---
+- name: Playbook de testes
+  hosts: all
+  tasks: 
+
+
+
+
+  - name: Desinstalando Pacote - NGXINX  
+    apt: 
+      name: "{{ item }}"
+      state: absent
+      update_cache: yes
+    with_items:
+    - "nginx"
+    notify: restart
+    when: ansible_distribution == "Ubuntu"
+
+  - name: Instlando Pacotes - Ubuntu
+    apt:
+      name: "{{ item }}"
+      state: present
+    with_items:
+    - "apache2"
+    - "libapache2-mod-php7.0"
+    - "php7.0"
+    notify: restart
+    when: ansible_distribution == "Ubuntu"
+
+  - name: Instalando Pacotes - CENTOS
+    yum: 
+      name: "{{ item }}"
+      state: present
+    with_items: 
+    - "httpd"
+    - "php"
+#    notify: restart
+    when: ansible_distribution == "CentOS"
+
+
+  - name: Enviando arquivo
+    copy:
+      src: index.php
+      dest: /var/www/html/index.php
+#    when: ansieble_distribution == "Ubuntu"
+
+
+  handlers:
+  - name: restart
+    service:
+      name: "{{ item }}"
+      with_items:
+      - "a2enmod" 
+      - "php7.0"
+      state: restarted
+
+

@@ -1,0 +1,8 @@
+    - name: Instalando o apache - DEBIAN
+      apt: name=apache2 state=present update_cache=yes
+      when: ansible_os_family == "Debian"
+
+    - name: Iniciando o apache - Debian
+      service: name=apache2 state=restarted
+      when: ansible_os_family == "Debian"
+
